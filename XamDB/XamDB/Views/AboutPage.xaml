@@ -49,6 +49,7 @@
                         Text="Show Time" />
                 <Label Text="{Binding CurrentTime}" />
                 <Label Text="{Binding Greeting}" />
+                <Label Text="{Binding LongGreeting}" />
             </StackLayout>
         </ScrollView>
     </Grid>

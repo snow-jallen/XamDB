@@ -8,7 +8,8 @@ using Xamarin.Essentials;
 
 namespace XamDB.ViewModels
 {
-    public partial class AboutViewModel : ObservableObject
+    [ObservableObject]
+    public partial class AboutViewModel
     {
         public AboutViewModel()
         {
@@ -38,9 +39,11 @@ namespace XamDB.ViewModels
         }
 
         [ObservableProperty]
-        [AlsoNotifyChangeFor(nameof(Greeting))]
+        [AlsoNotifyChangeFor(nameof(Greeting), nameof(LongGreeting))]
         private DateTime currentTime;
 
         public string Greeting => $"Current Time: {CurrentTime:t}";
+
+        public string LongGreeting => $"Current Date/Time: {CurrentTime}";
     }
 }
