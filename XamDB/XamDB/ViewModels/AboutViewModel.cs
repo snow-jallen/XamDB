@@ -1,18 +1,35 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Input;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
-using Xamarin.Forms;
+
 
 namespace XamDB.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public partial class AboutViewModel : BaseViewModel
     {
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
         }
 
-        public ICommand OpenWebCommand { get; }
+        [ICommand]
+        private void ShowCurrentTime()
+        {
+            Title = DateTime.Now.ToString();
+            OpenWebCommand.NotifyCanExecuteChanged();
+        }
+
+        [ICommand(CanExecute = nameof(CanOpenWeb))]
+        private async Task OpenWeb()
+        {
+            await Browser.OpenAsync("https://aka.ms/xamarin-quickstart");
+        }
+
+        private bool CanOpenWeb()
+        {
+            return DateTime.Now.Second % 2 == 0;
+        }
     }
 }

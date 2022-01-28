@@ -147,6 +147,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Common">
+      <Version>8.0.0-preview1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
       <Version>3.1.22</Version>
     </PackageReference>
