@@ -47,6 +47,8 @@
                         TextColor="White" />
                 <Button Command="{Binding ShowCurrentTimeCommand}"
                         Text="Show Time" />
+                <Label Text="{Binding CurrentTime}" />
+                <Label Text="{Binding Greeting}" />
             </StackLayout>
         </ScrollView>
     </Grid>
