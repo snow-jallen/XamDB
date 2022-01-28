@@ -1,8 +1,5 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 using XamDB.Services;
-using XamDB.Views;
 
 namespace XamDB
 {
@@ -13,7 +10,7 @@ namespace XamDB
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<SqliteDataStore>();
             MainPage = new AppShell();
         }
 
